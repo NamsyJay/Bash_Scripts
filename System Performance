@@ -1,0 +1,61 @@
+System Monitoring Script:  
+#!/bin/bash 
+threshold=90 
+ 
+cpu_usage=$(top -bn1 | grep "Cpu(s)" | 
+awk '{print $2}' | cut -d. -f1) 
+if [ "$cpu_usage" -gt "$threshold" ]; then 
+ echo "High CPU usage detected: 
+$cpu_usage%" 
+ # Add alert/notification logic here
+
+Log Analyzer Script: 
+#!/bin/bash 
+logfile="/path/to/logfile.log" 
+ 
+grep "ERROR" "$logfile" > error_log.txt 
+echo "Error log created." 
+
+Network Connectivity Checker 
+#!/bin/bash 
+host="example.com" 
+ 
+if ping -c 1 "$host" &>/dev/null; then 
+ echo "Network is up." 
+else 
+ echo "Network is down." 
+
+ebsite Uptime Checker Script: 
+ 
+#!/bin/bash 
+website="https://example.com" 
+ 
+if curl --output /dev/null --silent --head --fail 
+"$website"; then 
+ echo "Website is up." 
+else 
+ echo "Website is down." 
+
+CPU Usage Tracker Script: 
+#!/bin/bash 
+output_file="cpu_usage_log.txt"  
+echo "$(date) $(top -bn1 | grep "Cpu(s)" | 
+awk '{print $2}' | cut -d. -f1)%" >> 
+"$output_file" 
+echo "CPU usage logged."
+
+System Information Script: 
+#!/bin/bash 
+output_file="system_info.txt" 
+ 
+echo "System Information:" > 
+"$output_file" 
+echo "-------------------" >> "$output_file" 
+echo "Hostname: $(hostname)" >> 
+"$output_file" 
+echo "OS: $(uname -a)" >> "$output_file" 
+echo "Memory: $(free -h)" >> 
+"$output_file" 
+echo "Disk Space: $(df -h)" >> 
+"$output_file" 
+echo "System info saved to $output_file."
